@@ -5,22 +5,40 @@ import Navbar from '../../Components/Navbar/Navbar'
 import './Home.css'
 export default class Home extends Component {
   state = {
-    workerList: []
+    workerList: [],
+    error: false
   }
   getFromApi = () => {
     ApiServices.getWorkerData()
     .then((res)=>{
+        this.setState({
+          workerList: res.results
+        })        
+        localStorage.setItem('data', JSON.stringify(this.state.workerList))
+    })
+    .catch(()=>{
       this.setState({
-        workerList: res.results
+        error : !this.state.error
       })
     })
   }
   componentDidMount(){
-    this.getFromApi()
+    if(localStorage.getItem('data') === null){
+      this.getFromApi()
+    }else{
+      this.setState({
+        workerList: JSON.parse(localStorage.getItem('data'))
+      })
+    }
   }
   render() {
+    if(this.state.error){
+      return <h1 className="error">connection with API failed, please turn on your internet connection or check .env file on this project <br /> *Please read README for more information</h1>
+    }
     return (
-      <div id="home">
+      <div
+        id="home"
+      >
         <Navbar />
         <div className="main">
             { 

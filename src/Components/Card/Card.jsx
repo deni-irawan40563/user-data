@@ -6,7 +6,7 @@ export default function Card({firstName, lastName, email, country, avatar, id, t
   return (
       <>
         <div className="card-container">
-          <img className="round" src={avatar} alt={`avatar ${firstName} ${lastName}`} />
+          <img className="round" src={avatar} alt={`avatar ${firstName} ${lastName}`} loading="lazy" />
           <h3>{firstName} {lastName}</h3>
           <p>front-end developer</p>
           <div className="information">

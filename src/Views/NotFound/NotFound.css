@@ -1,0 +1,11 @@
+.container {
+  text-align: center;
+  margin-top: 10px;
+  padding: 50px;
+  background-color: var(--primary-color);
+  color: #03BFCB;
+}
+.container img {
+  height: 150px;
+  width: 200px;
+}
