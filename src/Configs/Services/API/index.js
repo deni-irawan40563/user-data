@@ -1,6 +1,6 @@
 import GET from './API-GET';
 
-const getWorkerData = () => GET('?results=100');
+const getWorkerData = () => GET('?results=20');
 
 const APIConfig = {
   getWorkerData,

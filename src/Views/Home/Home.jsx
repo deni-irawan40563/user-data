@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import ApiServices from '../../Configs/Services/API/index'
+import './Home.css'
 import Card from '../../Components/Card/Card'
 import Navbar from '../../Components/Navbar/Navbar'
-import './Home.css'
 export default class Home extends Component {
   state = {
     workerList: [],
