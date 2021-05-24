@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import './Card.css'
 
 export default function Card({firstName, lastName, email, country, avatar, id, telephone}) {
@@ -25,3 +26,23 @@ export default function Card({firstName, lastName, email, country, avatar, id, t
       </>
   )
 }
+
+Card.defaultProps = {
+  avatar: 'https://icon-library.com/images/no-user-image-icon/no-user-image-icon-27.jpg',
+  firstName: 'first name |',
+  lastName: ' last name',
+  id: '00000',
+  email: 'email@example.com',
+  telephone: '00000',
+  country: 'country'
+}
+
+Card.propTypes = {
+  avatar: PropTypes.string,
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  id: PropTypes.string,
+  email: PropTypes.string,
+  telephone: PropTypes.string,
+  country: PropTypes.string
+};

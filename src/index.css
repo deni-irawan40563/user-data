@@ -10,7 +10,7 @@
 
 /* Basic Setting for Global CSS*/
 * {
-  margin: unset;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 html {

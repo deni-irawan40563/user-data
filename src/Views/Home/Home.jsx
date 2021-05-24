@@ -1,22 +1,44 @@
 import React, { Component } from 'react'
+import ApiServices from '../../Configs/Services/API/index'
 import Card from '../../Components/Card/Card'
 import Navbar from '../../Components/Navbar/Navbar'
 import './Home.css'
-
 export default class Home extends Component {
+  state = {
+    workerList: []
+  }
+  getFromApi = () => {
+    ApiServices.getWorkerData()
+    .then((res)=>{
+      this.setState({
+        workerList: res.results
+      })
+    })
+  }
+  componentDidMount(){
+    this.getFromApi()
+  }
   render() {
     return (
       <div id="home">
         <Navbar />
         <div className="main">
-          <Card firstName="Simon" lastName="Dupont" avatar="https://randomuser.me/api/portraits/men/9.jpg" country="France" email="deny@gmail.com" id="1NNaN60703326 22" telephone="0831723243435" />
-          <Card firstName="Simon" lastName="Dupont" avatar="https://randomuser.me/api/portraits/men/9.jpg" country="France" email="deny@gmail.com" id="1NNaN60703326 22" telephone="0831723243435" />
-          <Card firstName="Simon" lastName="Dupont" avatar="https://randomuser.me/api/portraits/men/9.jpg" country="France" email="deny@gmail.com" id="1NNaN60703326 22" telephone="0831723243435" />
-          <Card firstName="Simon" lastName="Dupont" avatar="https://randomuser.me/api/portraits/men/9.jpg" country="France" email="deny@gmail.com" id="1NNaN60703326 22" telephone="0831723243435" />
-          <Card firstName="Simon" lastName="Dupont" avatar="https://randomuser.me/api/portraits/men/9.jpg" country="France" email="deny@gmail.com" id="1NNaN60703326 22" telephone="0831723243435" />
-          <Card firstName="Simon" lastName="Dupont" avatar="https://randomuser.me/api/portraits/men/9.jpg" country="France" email="deny@gmail.com" id="1NNaN60703326 22" telephone="0831723243435" />
-          <Card firstName="Simon" lastName="Dupont" avatar="https://randomuser.me/api/portraits/men/9.jpg" country="France" email="deny@gmail.com" id="1NNaN60703326 22" telephone="0831723243435" />
-          <Card firstName="Simon" lastName="Dupont" avatar="https://randomuser.me/api/portraits/men/9.jpg" country="France" email="deny@gmail.com" id="1NNaN60703326 22" telephone="0831723243435" />
+            { 
+              this.state.workerList.map(
+                data => {
+                  return <Card
+                  key={data.id.value}
+                  firstName={data.name.first}
+                  lastName={data.name.last}
+                  avatar={data.picture.large}
+                  country={data.location.country}
+                  email={data.email}
+                  id={data.id.value}
+                  telephone={data.phone}
+                  />
+                }
+              )
+            }
         </div>
       </div>
     )
