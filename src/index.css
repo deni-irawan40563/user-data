@@ -3,15 +3,9 @@
 
 /* Create Variable CSS for Global Use */
 :root {
-  --primary-color: #ED1260;
-  --primary-color-disabled: #ee81a3;
-  --violet-color: #F554E9;
-  --yellow-color: #FFB822;
-  --blue-color: #22B9FF;
-  --green-color: #61C378;
-  --rounded-min: 4px;
-  --rounded-mid: 8px;
-  --border: 1px solid #BBC1C8;
+  --primary-color: #231E39;
+  --border: 1px solid #03BFCB;
+  --shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
 }
 
 /* Basic Setting for Global CSS*/
@@ -26,8 +20,9 @@ html {
 body {
   min-block-size: 100%;
   min-inline-size: 100%;
-  color: #4F4F4F;
   font-family: 'Lato', sans-serif;
+	color: #B3B8CD;
+  background-color: grey;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
